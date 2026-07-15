@@ -1,0 +1,13 @@
+Hello {{ student_name }},
+
+This is a friendly reminder that the application deadline for {{ drive_title }} at {{ company_name }} is approaching.
+
+Placement drive: {{ drive_title }}
+Company: {{ company_name }}
+Application deadline: {{ deadline.strftime('%Y-%m-%d %H:%M:%S') }}
+Remaining days: {{ remaining_days }}
+
+Please apply before the deadline if you are interested.
+
+Regards,
+Placify Team

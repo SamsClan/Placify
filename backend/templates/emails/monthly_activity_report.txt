@@ -1,0 +1,33 @@
+Monthly Activity Report
+=======================
+Report month: {{ report_month }}
+Generated at: {{ generated_at }}
+
+Summary
+-------
+Total placement drives: {{ total_drives }}
+Total companies: {{ total_companies }}
+Total applications: {{ total_applications }}
+Total selected students: {{ total_selected_students }}
+Selection percentage: {{ selection_percentage }}%
+
+Applications by department:
+{% for department, count in applications_by_department %}
+- {{ department }}: {{ count }}
+{% else %}
+- No department data available.
+{% endfor %}
+
+Drives conducted this month:
+{% for drive in drives_this_month %}
+- {{ drive.title }} — {{ drive.company }} (Deadline: {{ drive.deadline }})
+{% else %}
+- No drives conducted this month.
+{% endfor %}
+
+Top recruiting companies:
+{% for company in top_recruiting_companies %}
+- {{ company.name }}: {{ company.applications }} applications
+{% else %}
+- No recruiting company data available.
+{% endfor %}

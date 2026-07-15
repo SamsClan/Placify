@@ -1,0 +1,194 @@
+.register-container {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.register-card {
+    background: white;
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.register-header h1 {
+    color: #00264D;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.register-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.choices-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.choice-card {
+    background: white;
+    border: 3px solid #e9ecef;
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.choice-card:hover {
+    border-color: #00498D;
+    box-shadow: 0 15px 40px rgba(0, 38, 77, 0.15);
+    transform: translateY(-5px);
+}
+
+.choice-icon {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+    color: #00264D;
+}
+
+.choice-content {
+    transition: all 0.3s ease;
+}
+
+.choice-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00264D;
+    margin-bottom: 15px;
+}
+
+.choice-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.features-list li {
+    padding: 8px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.features-list li:before {
+    content: "✓ ";
+    color: #00498D;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.btn-proceed {
+    background: linear-gradient(90deg, #00264D, #00498D);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 300px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.btn-proceed:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 38, 77, 0.3);
+    color: white;
+}
+
+.btn-proceed:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+}
+
+.login-link a {
+    color: #00498D;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .register-card {
+        padding: 40px 20px;
+    }
+
+    .register-header h1 {
+        font-size: 2rem;
+    }
+
+    .choices-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .choice-card {
+        padding: 30px 20px;
+    }
+
+    .choice-icon {
+        font-size: 3rem;
+    }
+
+    .choice-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-container {
+        flex-direction: column;
+    }
+
+    .btn-proceed {
+        max-width: 100%;
+    }
+}

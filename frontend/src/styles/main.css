@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Placement Portal — design tokens + shared styles
+   Visual language ported from the Placify reference (navy/blue gradient
+   theme). Page-specific overrides live in each view's <style scoped> block.
+   ========================================================================== */
+
+:root {
+  --pp-navy: #00264d;
+  --pp-navy-light: #00498d;
+  --pp-blue: #004f9d;
+  --pp-blue-light: #5295d3;
+  --pp-surface: #ffffff;
+  --pp-surface-muted: #f6f7fa;
+  --pp-border: #eef0f3;
+  --pp-text-muted: #6c7280;
+  --pp-radius-lg: 16px;
+  --pp-radius-md: 12px;
+  --pp-radius-sm: 8px;
+  --pp-shadow-card: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --pp-shadow-panel: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at top left, rgba(186, 96, 58, 0.35), transparent 40%),
+    radial-gradient(circle at top right, rgba(83, 142, 231, 0.35), transparent 40%),
+    linear-gradient(180deg, #0b0f19 0%, #0d0f14 50%, #0b0f19 100%);
+  min-height: 100vh;
+  color: #1c1f26;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: auto;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #707983 0%, #5f6974 100%);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.site-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer-title {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.site-footer-text {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.92;
+}
+
+/* ---------- Hero ---------- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  color: #ffffff;
+  padding: 4px 4px 20px;
+  margin-bottom: 4px;
+}
+
+.hero-section h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.hero-section .welcome-text,
+.hero-section p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ---------- Cards / panels ---------- */
+.pp-panel {
+  background: var(--pp-surface);
+  border-radius: var(--pp-radius-lg);
+  box-shadow: var(--pp-shadow-panel);
+  padding: 24px;
+  border: none;
+}
+
+.pp-panel-title {
+  font-weight: 700;
+  color: var(--pp-navy);
+  margin-bottom: 0;
+}
+
+.pp-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pp-navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--pp-blue-light);
+}
+
+.stat-card {
+  border: none;
+  border-radius: var(--pp-radius-md);
+  box-shadow: var(--pp-shadow-card);
+  background: var(--pp-surface);
+  text-align: center;
+  padding: 1.75rem 1rem;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.stat-card .stat-icon {
+  font-size: 2.1rem;
+  color: var(--pp-navy);
+}
+
+.stat-card .stat-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--pp-navy-light);
+  margin: 0.5rem 0 0.15rem;
+}
+
+.stat-card .stat-label {
+  color: var(--pp-navy);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.stat-card .stat-trend {
+  font-size: 0.76rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn-pp-primary {
+  background: linear-gradient(90deg, var(--pp-navy), var(--pp-navy-light));
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-pp-primary:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 38, 77, 0.25);
+}
+
+.btn-pp-outline {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
+  border-radius: 25px;
+  font-weight: 600;
+  background: transparent;
+  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.btn-pp-outline:hover {
+  background: var(--pp-navy);
+  color: #fff;
+}
+
+/* On light panels (white background) make outline buttons visible by default */
+.pp-panel .btn-pp-outline {
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--pp-navy);
+  background: transparent;
+}
+.pp-panel .btn-pp-outline:hover {
+  background: var(--pp-navy);
+  color: #fff;
+}
+
+/* ---------- Form alerts ---------- */
+.pp-form-alert {
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.92rem;
+  border: 1px solid transparent;
+}
+
+.pp-form-alert-info {
+  background: #eaf2fb;
+  border-color: #cfe0f5;
+  color: #00498d;
+}
+
+.pp-form-alert-success {
+  background: #e8f6ee;
+  border-color: #c9ecd8;
+  color: #147a3b;
+}
+
+.pp-form-alert-danger {
+  background: #fdecec;
+  border-color: #f7cfcf;
+  color: #b3261e;
+}
+
+/* ---------- Status badges ---------- */
+.badge-status {
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: capitalize;
+}
+
+.badge-blue { background: #e6f1fb; color: #0c447c; }
+.badge-amber { background: #faeeda; color: #854f0b; }
+.badge-green { background: #eaf3de; color: #3b6d11; }
+.badge-red { background: #fcebeb; color: #a32d2d; }
+.badge-purple { background: #eeedfe; color: #3c3489; }
+.badge-gray { background: #f1efe8; color: #444441; }
+
+.cgpa-pill {
+  background: #eeedfe;
+  color: #3c3489;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ---------- Avatars ---------- */
+.pp-avatar {
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--pp-navy);
+  overflow: hidden;
+}
+
+/* ---------- Tables ---------- */
+.table-modern thead th {
+  border: none;
+  color: var(--pp-text-muted);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding-bottom: 12px;
+}
+
+.table-modern td {
+  vertical-align: middle;
+  border-color: var(--pp-border);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.table-modern tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- Empty / loading / error states ---------- */
+.pp-state {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--pp-text-muted);
+}
+
+.pp-state i {
+  font-size: 2.4rem;
+  color: #c9cdd4;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.pp-state h5 {
+  color: #3a3f4b;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pp-state.pp-state-error i { color: #e3a5a5; }
+.pp-state.pp-state-error h5 { color: #a32d2d; }
+
+.pp-skeleton {
+  background: linear-gradient(90deg, #eef0f3 25%, #f7f8fa 37%, #eef0f3 63%);
+  background-size: 400% 100%;
+  animation: pp-shimmer 1.4s ease infinite;
+  border-radius: var(--pp-radius-sm);
+}
+
+@keyframes pp-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* ---------- Form controls ---------- */
+.pp-form-label {
+  font-weight: 600;
+  color: var(--pp-navy);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--pp-blue-light);
+  box-shadow: 0 0 0 0.2rem rgba(82, 149, 211, 0.25);
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <body style="font-family: Arial, sans-serif; line-height: 1.5; color: #1f2937;">
+    <h2 style="color: #2563eb;">Placement deadline reminder</h2>
+    <p>Hello {{ student_name }},</p>
+    <p>This is a friendly reminder that the application deadline for <strong>{{ drive_title }}</strong> at <strong>{{ company_name }}</strong> is approaching.</p>
+    <ul>
+      <li><strong>Placement drive:</strong> {{ drive_title }}</li>
+      <li><strong>Company:</strong> {{ company_name }}</li>
+      <li><strong>Application deadline:</strong> {{ deadline.strftime('%Y-%m-%d %H:%M:%S') }}</li>
+      <li><strong>Remaining days:</strong> {{ remaining_days }}</li>
+    </ul>
+    <p>Please apply before the deadline if you are interested.</p>
+    <p>Regards,<br/>Placify Team</p>
+  </body>
+</html>
