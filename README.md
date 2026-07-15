@@ -1,8 +1,24 @@
-# Placify
+# Placify — Placement Application Portal
+
+**Modern Application Development II (MAD-2) — Final Project Submission**
 
 A full-stack placement management system connecting **students**, **companies**, and **placement admins** — built with a Flask + Celery + Redis backend and a Vue 3 SPA frontend.
 
-Students discover and apply to placement drives, companies post openings and manage applicants, and admins moderate the whole ecosystem with real-time analytics.
+Students discover and apply to placement drives, companies post openings and manage applicants, and admins moderate the whole ecosystem with real-time analytics and automated background jobs.
+
+---
+
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Setup & Run](#setup--run)
+- [Database Migrations](#database-migrations)
+- [Email Setup (Mailpit)](#email-setup-mailpit)
+- [Environment Variables](#environment-variables)
+- [Viva Demonstration Guide](#viva-demonstration-guide)
+- [Design Notes / Assumptions](#design-notes--assumptions)
 
 ---
 
@@ -36,7 +52,7 @@ Students discover and apply to placement drives, companies post openings and man
 - Clean dashboard with live stats, one-click triggers for background jobs, and a link out to a dedicated **Analytics** page
 - Full moderation across companies, students, drives, and applications
 
-### Background jobs (Celery)
+### Background Jobs (Celery)
 1. **Daily deadline reminders** — emails students about drives closing soon. Runs daily at 09:00 UTC (`celery beat`), or trigger instantly from the Admin Dashboard.
 2. **Monthly activity report** — HTML email to the admin with drive/application/selection stats and embedded matplotlib charts. Runs on the 1st of every month at 00:00 UTC, or trigger instantly from the Admin Dashboard.
 3. **CSV export** (user-triggered, async) — student clicks "Export applications as CSV" → job is queued → frontend polls status → download link appears on completion.
@@ -60,32 +76,32 @@ Every list view (Admin's Companies/Students/Drives/Applications, Company's Jobs/
 
 ```
 Placement_Application_Portal 2/
-├── backend/app.py             # WSGI entrypoint (flask run / gunicorn)
-├── backend/celery_entrypoint.py  # Celery worker/beat entrypoint
+├── backend/app.py                 # WSGI entrypoint (flask run / gunicorn)
+├── backend/celery_entrypoint.py   # Celery worker/beat entrypoint
 ├── backend/
 │   ├── api/v1/
-│   │   ├── auth_routes.py     # Login/register
-│   │   ├── common.py          # Shared helpers: auth checks, serializers, caching, avatars, search
-│   │   ├── admin_routes.py    # Admin dashboard, analytics, moderation, background-job triggers
-│   │   ├── company_routes.py  # Company dashboard, jobs, applications, placements
-│   │   └── student_routes.py  # Student dashboard, jobs, applications, exports, notifications
+│   │   ├── auth_routes.py         # Login/register
+│   │   ├── common.py              # Shared helpers: auth checks, serializers, caching, avatars, search
+│   │   ├── admin_routes.py        # Admin dashboard, analytics, moderation, background-job triggers
+│   │   ├── company_routes.py      # Company dashboard, jobs, applications, placements
+│   │   └── student_routes.py      # Student dashboard, jobs, applications, exports, notifications
 │   ├── controllers/
-│   │   └── spa_controller.py  # Serves the built Vue SPA for all non-API routes
-│   ├── models/                # SQLAlchemy models
-│   ├── tasks/                 # Celery tasks: reminders.py, reports.py, exports.py
-│   ├── utils/charts.py        # Matplotlib chart generation
-│   ├── templates/emails/      # HTML/text email templates
-│   ├── celery_app.py          # Celery config + beat schedule
-│   ├── factory.py             # Flask app factory
-│   └── run.py                 # Dev server entrypoint (seeds DB on first run)
+│   │   └── spa_controller.py      # Serves the built Vue SPA for all non-API routes
+│   ├── models/                    # SQLAlchemy models
+│   ├── tasks/                     # Celery tasks: reminders.py, reports.py, exports.py
+│   ├── utils/charts.py            # Matplotlib chart generation
+│   ├── templates/emails/          # HTML/text email templates
+│   ├── celery_app.py              # Celery config + beat schedule
+│   ├── factory.py                 # Flask app factory
+│   └── run.py                     # Dev server entrypoint (seeds DB on first run)
 └── frontend/
     ├── src/
-    │   ├── views/              # Page components (Admin/Company/Student/Auth)
-    │   ├── components/         # Shared UI: EntityCard, DetailHero, ChartCard, PaginationControls, StatusBadge, ...
-    │   ├── composables/        # useDashboard, useTaskPolling, useApplicationExport, usePagination, useToast, ...
-    │   ├── stores/              # Pinia stores
-    │   └── styles/              # Design tokens (navy/blue theme)
-    └── css/pages/public/        # Login/Register/Home page styles
+    │   ├── views/                 # Page components (Admin/Company/Student/Auth)
+    │   ├── components/            # Shared UI: EntityCard, DetailHero, ChartCard, PaginationControls, StatusBadge, ...
+    │   ├── composables/           # useDashboard, useTaskPolling, useApplicationExport, usePagination, useToast, ...
+    │   ├── stores/                # Pinia stores
+    │   └── styles/                # Design tokens (navy/blue theme)
+    └── css/pages/public/          # Login/Register/Home page styles
 ```
 
 **Why the API is split into 4 files:** `resource_routes.py` used to be a single ~1750-line file. It's now `common.py` (shared helpers + auth/search/avatar routes) plus one file per role (`admin_routes.py`, `company_routes.py`, `student_routes.py`), each registered as its own Blueprint in `api/v1/__init__.py`. Same 62 routes, same behavior — just organized by who calls them.
@@ -217,7 +233,7 @@ Always read the autogenerated migration before running `upgrade` — Alembic is 
 
 ---
 
-## Email setup (Mailpit)
+## Email Setup (Mailpit)
 
 The app sends two kinds of emails, both email-only (no SMS/chat integrations):
 1. Daily deadline reminders to students
