@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 .venv/
 *.egg-info/
+.env
 
 # Flask instance data
 backend/instance/*.db
