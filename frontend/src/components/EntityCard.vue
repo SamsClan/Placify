@@ -134,9 +134,7 @@ defineProps({
   padding: 8px 10px;
 }
 
-/* Ensure primary action buttons are visible by default on cards
-   - Keep hover only for visual enhancement (color change)
-   - Scope to .entity-card-actions so global .btn-pp-outline stays unchanged */
+
 .entity-card-actions :deep(.btn-pp-outline) {
   background: var(--pp-surface-muted);
   color: var(--pp-navy);
@@ -147,7 +145,8 @@ defineProps({
   color: #fff;
 }
 
-/* Make icon-only links/buttons inside cards clearly visible */
+
+
 .entity-card-actions :deep(.btn-icon) {
   background: var(--pp-surface-muted);
   color: var(--pp-navy);

@@ -51,7 +51,7 @@ class Config:
     MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "")
     MAIL_DEFAULT_SENDER = os.getenv("MAIL_DEFAULT_SENDER", "")
 
-    # Website URL validation regex - accepts full URLs or common domain forms like www.example.com
+    # Website URL validation regex  accepts full URLs or common domain forms like www.example.com
     WEBSITE_REGEX = r'^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+(\/[\w.-]*)?/?$'
 
 

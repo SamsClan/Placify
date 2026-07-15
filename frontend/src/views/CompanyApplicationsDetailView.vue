@@ -205,7 +205,7 @@ async function loadApplication() {
     application.value = resp.data.application;
 
     if (application.value) {
-      status.value = STATUS_LABELS[application.value.status] || "Applied"; // ← was: application.value.status directly
+      status.value = STATUS_LABELS[application.value.status] || "Applied"; 
       remark.value = application.value.remarks || "";
       joiningDate.value = application.value.join_date
         ? application.value.join_date.slice(0, 10)
@@ -219,7 +219,7 @@ async function loadApplication() {
 }
 
 async function save() {
-  // Validation for selected candidate
+
   if (status.value === "Selected" && !joiningDate.value) {
     toast.error("Please select a joining date.");
     showJoiningDateModal.value = true;
@@ -235,10 +235,10 @@ async function save() {
 
     toast.success("Application updated successfully.");
 
-    // Close modal if it is open
+    
     showJoiningDateModal.value = false;
 
-    // Reload latest application details
+    
     await loadApplication();
   } catch (err) {
     toast.error(err.response?.data?.message || "Unable to update application.");

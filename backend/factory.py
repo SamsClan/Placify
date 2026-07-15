@@ -56,9 +56,7 @@ def create_app(config_object=Config):
         ).update({'status': DriveStatus.COMPLETED}, synchronize_session=False)
         db.session.commit()
 
-    # Register JSON API routes first so their static path segments
-    # (/api/v1/...) always take priority over the SPA catch-all below.
-    register_api_v1(app)
+
     register_spa(app)
 
     @app.errorhandler(Exception)

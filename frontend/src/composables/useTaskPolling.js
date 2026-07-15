@@ -1,10 +1,7 @@
 import { ref } from 'vue'
 import http from '../api/http'
 
-/**
- * Polls a task-status endpoint until the task completes or fails.
- * statusEndpoint: function(taskId) => url string
- */
+
 export function useTaskPolling(statusEndpoint, { intervalMs = 1500, maxAttempts = 40 } = {}) {
   const polling = ref(false)
   const status = ref('')

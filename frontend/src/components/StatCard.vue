@@ -18,7 +18,7 @@ const props = defineProps({
   label: { type: String, required: true },
   value: { type: [String, Number], required: true },
   trend: { type: String, default: '' },
-  trendType: { type: String, default: 'neutral' }, // success | warning | danger | neutral
+  trendType: { type: String, default: 'neutral' }, 
 })
 
 const trendClass = computed(() => ({

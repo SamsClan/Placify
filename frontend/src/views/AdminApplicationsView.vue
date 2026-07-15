@@ -22,7 +22,7 @@
               :fields="applicationFields(application)"
             >
               <template #actions>
-                <!-- Admin users are not allowed to modify application status -->
+                <!-- Admin is not allowed to modify the application status -->
                 <button
                   v-if="section.title === 'Selected' || section.title === 'Rejected'"
                   class="btn-pp-outline"
@@ -88,7 +88,6 @@ const statusCopy = {
   REJECTED: 'rejected',
 }
 
-// Admins are not permitted to change application status; backend enforces this.
 
 async function removeApplication(application) {
   if (!window.confirm(`Remove ${application.student.name}'s application for ${application.drive.job_title}? This cannot be undone.`)) {

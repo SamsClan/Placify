@@ -226,7 +226,6 @@ body {
   color: #fff;
 }
 
-/* On light panels (white background) make outline buttons visible by default */
 .pp-panel .btn-pp-outline {
   border-color: rgba(0, 0, 0, 0.08);
   color: var(--pp-navy);
@@ -237,7 +236,6 @@ body {
   color: #fff;
 }
 
-/* ---------- Form alerts ---------- */
 .pp-form-alert {
   border-radius: 12px;
   padding: 0.85rem 1.1rem;
@@ -263,7 +261,7 @@ body {
   color: #b3261e;
 }
 
-/* ---------- Status badges ---------- */
+/*  Status badges */
 .badge-status {
   border-radius: 20px;
   padding: 5px 14px;
@@ -295,7 +293,7 @@ body {
   gap: 5px;
 }
 
-/* ---------- Avatars ---------- */
+/* Avatars */
 .pp-avatar {
   border-radius: 10px;
   color: #fff;
@@ -308,7 +306,7 @@ body {
   overflow: hidden;
 }
 
-/* ---------- Tables ---------- */
+/* Tables  */
 .table-modern thead th {
   border: none;
   color: var(--pp-text-muted);
@@ -330,7 +328,7 @@ body {
   border-bottom: none;
 }
 
-/* ---------- Empty / loading / error states ---------- */
+/*  Empty / loading / error states  */
 .pp-state {
   text-align: center;
   padding: 48px 16px;
@@ -365,7 +363,7 @@ body {
   100% { background-position: 0 50%; }
 }
 
-/* ---------- Form controls ---------- */
+/* Form controls  */
 .pp-form-label {
   font-weight: 600;
   color: var(--pp-navy);

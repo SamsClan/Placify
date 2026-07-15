@@ -1,13 +1,3 @@
-"""
-Serves the built Vue single-page app for every non-API route.
-
-This replaces the old session-based Jinja controllers (auth_controller,
-admin_controller, company_controller, student_controller, public_controller)
-that rendered server-side templates. The frontend is now a Vue 3 SPA that
-talks exclusively to the JSON API under /api/v1/*, so all UI routes
-(/admin/dashboard, /student/jobs, deep links, browser refreshes, etc.) are
-handled client-side by Vue Router once index.html loads.
-"""
 
 from pathlib import Path
 
@@ -15,7 +5,7 @@ from flask import current_app, jsonify, send_from_directory
 
 
 def _dist_dir():
-    """Locate the built frontend (frontend/dist) relative to the project root."""
+
     for base_dir in (Path(current_app.root_path), Path(current_app.root_path).parent):
         dist_dir = base_dir / "frontend" / "dist"
         if (dist_dir / "index.html").exists():

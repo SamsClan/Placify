@@ -66,7 +66,7 @@ function formatDate(value) {
 const sections = computed(() => {
   const pending = drives.value.pending || []
   const upcomingRaw = drives.value.upcoming || []
-  // Exclude pending approval drives from upcoming list
+  // Remove pending approval drives from upcoming list
   const upcoming = upcomingRaw.filter(d => {
     const status = (d.approval_status || '').toString().toLowerCase()
     return status !== 'pending' && status !== 'pending approval' && status !== 'pending_approval'

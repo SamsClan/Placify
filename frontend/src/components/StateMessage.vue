@@ -11,7 +11,7 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  type: { type: String, default: 'empty' }, // empty | error
+  type: { type: String, default: 'empty' }, 
   icon: { type: String, default: '' },
   title: { type: String, default: '' },
   description: { type: String, default: '' },

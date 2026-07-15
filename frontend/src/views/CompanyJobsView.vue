@@ -65,7 +65,6 @@
       </div>
     </div>
 
-    <!-- Edit dates modal (renders independently) -->
     <div v-if="showEditModal" class="modal d-block" tabindex="-1" style="background: rgba(0,0,0,0.35);">
       <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
@@ -90,7 +89,7 @@
 
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-// removed DatePicker; using native date input instead
+
 import { useRoute } from 'vue-router'
 import AppLayout from '../layouts/AppLayout.vue'
 import PageHeader from '../components/PageHeader.vue'

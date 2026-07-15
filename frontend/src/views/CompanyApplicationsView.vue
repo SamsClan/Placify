@@ -127,7 +127,7 @@ async function confirmSelection(applicationId) {
 function cancelSelection(applicationId) {
   pendingSelectionId.value = null
   pendingJoinDateMap.value[applicationId] = ''
-  // reset status back to previous value if needed
+ 
   loadApplications()
 }
 

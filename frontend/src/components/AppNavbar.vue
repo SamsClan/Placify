@@ -174,7 +174,7 @@ function handleSearch() {
   const query = searchQuery.value.trim()
   if (!query) return
 
-  // Use a unified search results page so Admin can search companies, students, and drives
+  // Search option
   router.push({ path: '/search', query: { q: query } })
 }
 
