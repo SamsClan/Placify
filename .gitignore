@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Flask instance data
+backend/instance/*.db
+backend/uploads/resumes/*
+!backend/uploads/resumes/.gitkeep
+backend/exports/*.csv
+
+# Celery / Redis runtime artifacts (should never be committed)
+celerybeat-schedule.db
+dump.rdb
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Dev convenience scripts
+logs/
+.dev-pids/
+
+# Editor / OS
+.vscode/
+.DS_Store
+__MACOSX/
+
+# Stray/empty lockfiles at the project root (frontend has its own)
+/package-lock.json
